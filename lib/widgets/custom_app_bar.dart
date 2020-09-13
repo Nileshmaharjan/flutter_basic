@@ -20,64 +20,58 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      height: 65.0,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.black12,
-            offset: Offset(0, 2),
-            blurRadius: 4.0,
-          ),
-        ],
-      ),
+   return Container(
+     padding: EdgeInsets.symmetric(horizontal: 20.0),
+     height: 65.0,
+     decoration: BoxDecoration(
+       color: Colors.white,
+       boxShadow: const [
+         BoxShadow(
+           color: Colors.black12,
+           offset: Offset(0, 2),
+           blurRadius: 4.0
+         )
+       ]
+     ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment:MainAxisAlignment.spaceBetween ,
         children: [
           Expanded(
             child: Text(
               'facebook',
               style: const TextStyle(
                 color: Palette.facebookBlue,
-                fontSize: 32.0,
+                fontSize: 28.0,
                 fontWeight: FontWeight.bold,
                 letterSpacing: -1.2,
               ),
             ),
           ),
           Container(
-            height: double.infinity,
             width: 600.0,
             child: CustomTabBar(
               icons: icons,
               selectedIndex: selectedIndex,
               onTap: onTap,
-              isBottomIndicator: true,
+              isBottomIndicator: true
             ),
-          ),
+
+            ),
           Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                UserCard(user: currentUser),
-                const SizedBox(width: 12.0),
-                CircleButton(
-                  icon: Icons.search,
-                  iconSize: 30.0,
-                  onPressed: () => print('Search'),
-                ),
-                CircleButton(
-                  icon: MdiIcons.facebookMessenger,
-                  iconSize: 30.0,
-                  onPressed: () => print('Messenger'),
-                ),
-              ],
-            ),
-          ),
-        ],
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  UserCard(user: currentUser),
+                  const SizedBox(
+                    width: 12.0
+                  ),
+                  CircleButton(icon: Icons.search, iconSize: 30.0, onPressed: () => print('Search')),
+                  CircleButton(icon: MdiIcons.facebookMessenger, iconSize: 30.0, onPressed: () => print('Messenger'))
+                ],
+              )
+          )
+        ]
       ),
-    );
+   );
   }
 }
